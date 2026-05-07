@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "allowUnreachableCode": true,
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+		"rootDir": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+		"ignoreDeprecations": "6.0"
+  },
+  "exclude": ["node_modules"],
+  "include": ["./**/*"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}

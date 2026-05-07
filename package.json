@@ -1,0 +1,31 @@
+{
+  "name": "lc-starter",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "xx": "tsx",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "watch": "tsx watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run format:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@swc/core": "^1.15.30",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "^30.3.0",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0"
+  }
+}
