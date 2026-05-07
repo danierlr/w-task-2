@@ -3,16 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsc && node --import=tsx ./src/index.ts",
+    "start": "tsc && node --env-file=.env --import=tsx ./src/index.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "watch": "tsx watch",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "check": "npm run typecheck && npm run lint && npm run format:check"
+    "watch": "tsx watch --env-file=.env",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

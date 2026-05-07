@@ -1,7 +1,7 @@
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['**/problems/**/*.test.ts'],
+  testMatch: ['**/src/**/*.test.ts'],
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/$1',
   },
