@@ -2,7 +2,7 @@ import { TradeVariant } from './TradeVariant'
 
 type Fee = {
   variant: TradeVariant
-  partDeducted: number
+  rate: number
 }
 
 export type TradeSimulationConfig = {
@@ -12,7 +12,7 @@ export type TradeSimulationConfig = {
 export class TradeSimulation {
   constructor(config: TradeSimulationConfig) {
     config.fees.forEach((fee) => {
-      this.feeParts.set(fee.variant, fee.partDeducted)
+      this.feeRates.set(fee.variant, fee.rate)
     })
   }
 
@@ -20,25 +20,25 @@ export class TradeSimulation {
   private money: number = 0
   private accruedFees: number = 0
 
-  private feeParts = new Map<TradeVariant, number>()
+  private feeRates = new Map<TradeVariant, number>()
 
   /**
    *
-   * @param amount
+   * @param sharesGained
    * @param price
    * @param tradeVariant
    */
   public trade(sharesGained: number, price: number, tradeVariant: TradeVariant) {
-    let moneyGained = sharesGained * price * -1
+    const moneyGained = sharesGained * price * -1 // positive if we sell shares & negative otherwise
 
     const volume = Math.abs(moneyGained)
-    const feePart = this.feeParts.get(tradeVariant)
+    const feeRate = this.feeRates.get(tradeVariant)
 
-    if (feePart === undefined) {
-      throw new Error('Invalid operation: no fee found')
+    if (feeRate === undefined) {
+      throw new Error('Invalid operation: no fee rate found')
     }
 
-    const fee = volume * feePart
+    const fee = volume * feeRate
 
     this.accruedFees += fee
     this.money += moneyGained
