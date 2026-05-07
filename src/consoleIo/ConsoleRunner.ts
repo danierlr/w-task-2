@@ -46,7 +46,7 @@ export class ConsoleRunner {
 				
 			})
 
-			simulation.calculateProfit()
+			simulation.calculateNetProfitLoss()
 
       rl.close()
     })
